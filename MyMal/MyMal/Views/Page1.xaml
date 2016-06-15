@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyMal.Views.Page1" BackgroundColor="#eeeeee">
+
+  <StackLayout>
+
+    <StackLayout Padding="20" BackgroundColor="#2f2f2f" Orientation="Horizontal">
+      <Entry WidthRequest="230" Placeholder="Nome do Anime" />
+      <Button Text="Buscar" Command="{Binding CarregarCommand}" />
+    </StackLayout>
+
+
+    <StackLayout Margin="1" Spacing="1" Padding="20" BackgroundColor="#eee" Orientation="Vertical" VerticalOptions="FillAndExpand">
+
+      <ListView HasUnevenRows="true" ItemsSource="{Binding Carregar}" x:Name ="Lista">
+        <ListView.ItemTemplate HasUnevenRows="true">
+          <DataTemplate>
+            <ViewCell Height="100">
+              <StackLayout Margin="1" Spacing="1" Padding="0" BackgroundColor="#eee"
+              Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HeightRequest="150">
+
+                  <StackLayout Margin="10" Spacing="1" Padding="0"  BackgroundColor="#eee" Orientation="Vertical" VerticalOptions="FillAndExpand" HeightRequest="150">
+                    <Image Aspect="AspectFill" Source="{Binding Imagem}" />
+                  </StackLayout>
+
+                  <StackLayout BackgroundColor="#eee" Orientation="Vertical">
+
+                    <Label Text="{Binding Name}"
+                    TextColor="#f35e20"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"/>
+
+                    <Label Text="{Binding English}"
+                    TextColor="#503026"
+                    HorizontalOptions="StartAndExpand"
+                    HorizontalTextAlignment="Start"/>
+
+                  </StackLayout>
+                </StackLayout>
+
+              </StackLayout>
+            </ViewCell>
+           </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+        
+      </StackLayout>
+    
+    
+  </StackLayout>
+</ContentPage>
