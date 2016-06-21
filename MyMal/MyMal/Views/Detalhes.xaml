@@ -2,5 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyMal.Views.Detalhes">
-  <Label x:Name="Titulo" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <ScrollView>
+    <StackLayout Padding="20" BackgroundColor="#eee" Orientation="Vertical" VerticalOptions="FillAndExpand">
+      <Label TextColor="Black" FontSize="30" x:Name="Titulo" HorizontalOptions="Center" />
+      <Image x:Name="Imagem" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="180" />
+
+      <Label TextColor="Black" x:Name="Sinopse" HorizontalOptions="Center" />
+
+    </StackLayout>
+  </ScrollView>
+  
 </ContentPage>

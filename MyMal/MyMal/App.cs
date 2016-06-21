@@ -17,8 +17,7 @@ namespace MyMal
             //MainPage = new Views.Page1();
 
             MainPage = new NavigationPage(new Views.Page1());
-
-
+            
             //// The root page of your application
             //MainPage = new ContentPage
             //{

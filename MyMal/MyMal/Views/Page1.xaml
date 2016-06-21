@@ -6,7 +6,7 @@
   <StackLayout>
 
     <StackLayout Padding="20" BackgroundColor="#2f2f2f" Orientation="Horizontal">
-      <Entry WidthRequest="230" Placeholder="Nome do Anime" />
+      <Entry x:Name="NomeAnime" WidthRequest="230" Placeholder="Nome do Anime" />
       <Button Text="Buscar" Command="{Binding CarregarCommand}" />
     </StackLayout>
 

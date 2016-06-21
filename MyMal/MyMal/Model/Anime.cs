@@ -89,6 +89,47 @@ namespace MyMal.Model
 
         }
 
+        /// <summary>
+        /// Sinopse
+        /// </summary>
+
+        private string sinopse;
+
+        public string Sinopse
+        {
+
+            get
+            {
+                return sinopse;
+            }
+            set
+            {
+                sinopse = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Sinopse)));
+            }
+
+        }
+        /// <summary>
+        /// Episodios
+        /// </summary>
+
+        private string episodios;
+
+        public string Episodios
+        {
+
+            get
+            {
+                return episodios;
+            }
+            set
+            {
+                episodios = value;
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Episodios)));
+            }
+
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
     }

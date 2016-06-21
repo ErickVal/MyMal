@@ -13,7 +13,7 @@ namespace MyMal.ViewModels
 {
     class ChamaXml
     {
-        public String respostaString;
+        //public String respostaString;
 
         public ChamaXml()
         {

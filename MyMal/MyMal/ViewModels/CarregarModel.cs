@@ -19,25 +19,39 @@ namespace MyMal.ViewModels
 
         public XDocument doc;
         public ChamaXml busca;
+        public String AnimeBusca;
 
         public async void chamador(String anime)
         {
 
             busca = new ViewModels.ChamaXml();
-            doc = await busca.ChamaBusca(anime);
-
-            Debug.WriteLine(doc);
-
-            foreach (XElement element in doc.Descendants("entry"))
+            try
             {
-                Debug.WriteLine(element);
-                Carregar.Add(new Model.Anime {
-                    Id = int.Parse(element.Element("id").Value),
-                    Name = element.Element("title").Value,
-                    English = element.Element("english").Value,
-                    Imagem = element.Element("image").Value
-                });                
+                doc = await busca.ChamaBusca(anime);
+                
+                Debug.WriteLine(doc);
+
+                foreach (XElement element in doc.Descendants("entry"))
+                {
+                    Debug.WriteLine(element);
+                    Carregar.Add(new Model.Anime
+                    {
+                        Id = int.Parse(element.Element("id").Value),
+                        Name = element.Element("title").Value,
+                        English = element.Element("english").Value,
+                        Imagem = element.Element("image").Value,
+                        Sinopse = element.Element("synopsis").Value,
+                        Episodios = element.Element("episodes").Value
+                    });
+                }
+
+            } //FIM DO TRY
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
             }
+
+
         }
 
         public CarregarModel()
@@ -53,7 +67,8 @@ namespace MyMal.ViewModels
             CarregarCommand = new Xamarin.Forms.Command(() =>
             {
                 Carregar.Clear();
-                chamador("Bleach");
+                
+                chamador(AnimeBusca);
                 //Carregar.Add(new Model.Anime { Id = 1, Name = "Aeroooooo" });
                 
             });
